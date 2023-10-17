@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+  <landing_page/>
+  <!-- <about_me/> -->
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import landing_page from './components/landing_page.vue';
+// import about_me from './components/about_me.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    landing_page,
+    // about_me
   }
 }
 </script>
@@ -17,10 +21,11 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #2c3e50; */
+  /* margin-top: 60px; */
+  
 }
 </style>
