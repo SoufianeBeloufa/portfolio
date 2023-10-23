@@ -39,7 +39,7 @@
 .about{
   width: 100%;
   position: relative;
-  background-color: var(--main-color);
+  background-color: #849acf;
   display:flex;
   justify-content:space-around;
   flex-direction: column;
@@ -71,7 +71,7 @@
 }
 .container{
     display: flex;
-    background-color: var(--main-color);
+    background-color: #849acf;
     color: white;
     flex-wrap: nowrap;
     height: 100vh;

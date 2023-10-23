@@ -87,6 +87,16 @@
     /* overflow:scroll;  */
 
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .projet {
     width: 30%;
     height: 100%;
@@ -97,6 +107,10 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+
+    /* Apply the animation */
 }
 
 .projet>p {
@@ -118,9 +132,10 @@
 }
 
 
+
 .pfe{
     background-color: #aca0badd;
-
+    
 }
 .outsourcing{
     background-color: #735893dd;
@@ -128,16 +143,23 @@
 }
 .stage{
     background-color: #4c2776dd;
+} 
+
+.pfe_animation{
+    animation: fadeIn 0.5s ease forwards;
+    
+    animation-delay: 0.2s;
+}
+.outsourcing_animation{
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.4s;
 
 }
+.stage_animation{
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.6s;
+} 
 
-
-.projet:hover{
-    transform: scale(1.3);
-    height:100% ;
-    z-index:1;
-
-}
 
 
 
@@ -165,6 +187,46 @@
 
 <script>
 export default{
-    name:'projects_page'
+    name:'projects_page',
+    mounted() {
+        // Get all elements that need to be animated
+        const pfeElement = document.querySelector('.pfe');
+        const outsourcingElement = document.querySelector('.outsourcing');
+        const stageElement = document.querySelector('.stage');
+    
+        // Function to check if an element is at least half in the viewport
+        function isHalfInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          console.log(rect.bottom,"//",rect.height,">>>",window.innerHeight)
+          return (
+             (rect.bottom >= 0 && (rect.bottom-rect.height/1.5) <= window.innerHeight)
+          );
+        }
+    
+        // Function to handle scroll event
+        function handle_scroll() {
+          if (isHalfInViewport(pfeElement)) {
+            console.log("is halfe visible >>>");
+            pfeElement.classList.add('pfe_animation');
+      } else {
+        pfeElement.classList.remove('pfe_animation');
+      }
+    
+          if (isHalfInViewport(outsourcingElement)) {
+            outsourcingElement.classList.add('outsourcing_animation');
+          } else {
+            outsourcingElement.classList.remove('outsourcing_animation');
+          }
+    
+          if (isHalfInViewport(stageElement)) {
+            stageElement.classList.add('stage_animation');
+          } else {
+            stageElement.classList.remove('stage_animation');
+          }
+        }
+       handle_scroll();
+        // Add scroll event listener to the window
+        window.addEventListener('scroll', handle_scroll);
+      },
 }
 </script>

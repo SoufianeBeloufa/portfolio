@@ -44,7 +44,7 @@
           required
           v-model="name"
         />
-        <label for="name">Your name</label>
+        <label for="name">Name</label>
              </div>
              <div class="email">
                <input class="mail_input"
@@ -53,17 +53,17 @@
           required
           v-model="email"
         />
-        <label for="email">Email address</label>
+        <label for="email">Email</label>
              </div>
              <div class="mail_content">
                 <textarea class="message_input"
                 name="content" 
-                id="content" cols="30" rows="10" 
+                id="content" cols="30" rows="5" 
                 required
                  v-model="message">
               </textarea>
              </div>
-             <button @click.prevent="handleSubmit">send</button>
+             <button class="send_button" @click.prevent="handleSubmit" role="button">send</button>
             </form>
             
              
@@ -247,7 +247,7 @@ label{
       background-color:var(--main-color);
     }
 
-    button{
+    /* button{
       display: inline-block;
       font-size: 17px;
       font-weight: 500;
@@ -259,8 +259,79 @@ label{
       border-radius: 10px 10px 10px 10px; 
 
 
+    } */
+    /*----------------------------------------*/
+
+.send_button {
+  background-image: linear-gradient(92.88deg, #bda640 9.16%, #dbbb2e 43.89%, #fcd110 64.72%);
+  border-radius: 10px 10px 10px 10px; 
+  border-style: none;
+  box-sizing: border-box;
+  color: #000000de;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.send_button:hover {
+  box-shadow: #fcd110 0 1px 30px;
+  transition-duration: .7s;
+}
+
+@media (max-width: 768px) {
+  .send_button {
+    padding: 0 2rem;
+  }
+   .contact_page{
+    flex-direction: column;
+    justify-content: space-around;
+   }
+  .contact_outil,.contact_forme{
+    width: 100%;
+  }
+  .contact_forme{
+    height: 80%;
+  }
+  .contact_outil{
+    box-shadow: none;
+
+    flex-direction: row;
+    height: 6%;
+
+  }
+  .mail_value,.tel_value,.adr_value{
+ display: none;
+  }
+  .contact-box{
+    width:15%;
+    height: 100%;
+  }
+  .mail_icon,.adr_icon,.tel_icon{
+        border-radius: 10px 10px 10px 10px;
+        width: 100%;
+        height: 100%;
+        margin-right: 0;
     }
-    
+    label{
+      font-size:13px;
+      translate: 30% 65%;
+      transition: translate 500ms, scale 500ms ;
+
+    }
+}
+
+
+    /*-------------------------------------------------------*/
     </style>
     <script>
     export default {

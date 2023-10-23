@@ -118,7 +118,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 1;
 }
@@ -139,7 +139,7 @@ canvas {
 }
 .nav{
   position:fixed;
-  width: inherit;
+  width: 100%;
   height: 10%;
   padding-left: -20% ;
   background-color: var(--main-color);
@@ -160,33 +160,35 @@ z-index: 200;
   /* flex-direction: row; */
   flex-wrap: wrap;
   height: 95%;
-  width: inherit;
+  width: 100%;
 }
 
 
 
 .right_content {
+  display: flex;
   order: 2; 
-  display: grid;
   place-items:center;
-  /* width: 50%; */
+  justify-content: center;
   flex: 1 1 50%;
   height: 100%;
   background-color: var(--main-color);
 }
 .photo{
+  align-self: center;
   filter: brightness(45%);
   border-radius: 50%;
-  background-color: #0b0b0b00; /* Change this to your desired color */
+  background-color: #0b0b0b00;
   position: relative;
-  margin: 50px auto;
+  /* margin: 100px auto; */
   box-shadow: 40px 40px 45px 0px rgba(61, 58, 58, 0.68);
   background-image: url('../assets/man3.png');
-  background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position:center;
   z-index: 1;
-  width: 50%;
-  height: 60%;
+  width: 400px;
+  height: 400px;
   background-color:#241b18a7;
 }
 
@@ -196,7 +198,6 @@ z-index: 200;
   flex-direction: column;
   align-items: center;
   flex-wrap: unset;
-  /* width: 50%; */
   flex: 1 1 50%;
   height: 100%;
   background-color: var(--main-color);
@@ -216,7 +217,6 @@ z-index: 200;
   height:100%;
   background-color: var(--second-color);
   position: absolute;
-  /* display: inline-block; */
   opacity: 1;
   animation: blink 0.7s infinite;
 }
@@ -226,7 +226,7 @@ z-index: 200;
   
   overflow: hidden;
   width: fit-content;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; 
 }
  #name {
   display:inline-flex;
@@ -382,8 +382,8 @@ h1{
   font-size:var(--medium-font);
 }
 .photo{
-  background-position: bottom;
-  height: 80%;
+  height: 260px;
+  width: 260px;
 }
   .right_content{
     order: 1;
@@ -570,15 +570,28 @@ function DistanceBetween(p1,p2) {
    return Math.sqrt(dx*dx + dy*dy);
 }
 window.onload = function() {
-  var initialHeight = window.innerHeight;
-  canvas.style.height = initialHeight + 'px';
+  // Set initial canvas width to viewport width excluding scrollbar width
+  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  var initialCanvasWidth = window.innerWidth - scrollbarWidth;
+  canvas.style.width = initialCanvasWidth + 'px';
 
   window.addEventListener('resize', function() {
+    // Update canvas width when the window is resized
+    var newScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    var newCanvasWidth = window.innerWidth - newScrollbarWidth;
+    canvas.style.width = newCanvasWidth + 'px';
+
+    // Update canvas height if needed
     var newHeight = window.innerHeight;
     canvas.style.height = newHeight + 'px';
+
+    // Update viewport dimensions
     w = window.innerWidth;
     h = window.innerHeight;
   });
+
+  // Rest of your code...
+
 create();
 particles();
 }
