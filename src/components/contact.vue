@@ -331,7 +331,7 @@ label{
     </style>
     <script>
     import { defineComponent } from "vue";
-    import axios from "axios";
+    // import axios from "axios";
     export default defineComponent( {
       name: 'about_me',
       data() {
@@ -355,10 +355,10 @@ label{
         this.message.length > 1
           ? ""
           : "message shouldn't be vide !";
-      await axios.post('http://localhost:5000/send_email', this.user)
-      .then((response)=>{
-        alert(response);
-      });
+     // await axios.post('http://localhost:5000/send_email', this.user)
+      //.then((response)=>{
+        //alert(response);
+      //});
     }
   },
     })
