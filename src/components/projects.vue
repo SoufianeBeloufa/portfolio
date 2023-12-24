@@ -10,22 +10,46 @@
 
           <p class="_presente">Here are some projects I've worked on : </p>
             <div class="work_container">
-            
-            <div class="pfe projet slide-bck-center ">
-                <p> lorem lorem lorem lorem lorem lorem lorem lorem
-                    lorem lorem lorem lorem lorem lorem lorem lorem
-                </p>
+              <div class="card pfe">
+            <div class="face face1">
+                <div class="content">
+                    <img src="../assets/pfe.png">
+                </div>
             </div>
-            <div class="outsourcing projet slide-bck-center ">
-                <p> lorem lorem lorem lorem lorem lorem lorem lorem
-                    lorem lorem lorem lorem lorem lorem lorem lorem
-                </p>
+            <div class="face face2">
+                <div class="content">
+                   <p>A platform for managing final year projects.</p>
+                    <router-link to="/pfe_detail" class="link">More</router-link>
+                </div>
             </div>
-            <div class="stage projet slide-bck-center ">
-                <p> lorem lorem lorem lorem lorem lorem lorem lorem
-                    lorem lorem lorem lorem lorem lorem lorem lorem
-                </p>
+        </div>
+        <div class="card outsourcing">
+            <div class="face face1">
+                <div class="content">
+                    <img src="../assets/landing_page0.jpg">
+                </div>
             </div>
+            <div class="face face2">
+                <div class="content">
+                    <p> Outsourcing platform.</p>
+                    <router-link to="/outsourcing_detail" class="link">More</router-link>
+                </div>
+            </div>
+        </div>
+        <div class="card stage">
+            <div class="face face1">
+                <div class="content">
+                    <img src="../assets/stage.png">
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Dashboard</p>
+                    <router-link to="#" class="link">More</router-link>
+                </div>
+            </div>
+        </div>
+          
 
                 
             </div>
@@ -41,7 +65,8 @@
     padding: 0;
 }
 .work{
-  height: 100vh;
+  position: relative;
+  height: auto;
   background-color: var(--main-color);
   display:flex;
   flex-direction: column;
@@ -70,70 +95,134 @@
 ._presente{
     max-font-size: 24px; /* Set a maximum font size in pixels */
     min-font-size: 16px;
-    left: 10%;
-    top: 2%;
+    left: 12%;
+    top: 0.5rem;
 }
+
 .work_container{
-    margin: 8% 10% 5% 10%;
-    display: flex;
-    background-color: var(--main-color);
-    color: white;
-    flex-wrap: nowrap;
-    height: 80%;
-    width: 80%;    
+    margin-top: 8%; 
+    align-self:center;
+    width: 80%;
+    height: 90%;
     position: relative;
+    display: flex;
     align-items: center;
     justify-content: space-around;
-    /* overflow:scroll;  */
+}
 
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.projet {
+/******************************************************** */
+.work_container .card{
+    position: relative;
+    cursor: pointer;
     width: 30%;
-    height: 100%;
+    height: 80%;
+}
+
+.work_container .card .face{
     border-radius: 5px 5px 5px 5px;
-    transition: transform 0.3s ease;
+    border: var(--main-color) 2px solid;
+    /* width: 90%; */
+    /* height: 100%; */
+    transition: 0.5s;
+}
+
+.work_container .card .face1{
+    position: relative;
+    background: var(--main-color);
     display: flex;
-    /* padding: 1%; */
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    /* height: 60%; */
+    transform: translateY(49%);
+}
+
+.work_container .card:hover .face1{
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    background: #ff0057;
+    transform: translateY(0);
+}
+
+.work_container .card .face1 .content{
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.work_container .card:hover .face1 .content{
+    opacity: 1;
+}
+
+.work_container .card .face.face1 .content img{
+    max-width: 100%;
+    height: 170px;
+    border-radius: 5px 5px 5px 5px;
+
+}
+
+.work_container .card .face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.work_container .card .face2{
     position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-
-    /* Apply the animation */
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 10px;
+    box-sizing:content-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.885);
+    transform: translateY(-51%);
 }
 
-.projet>p {
-    font-size: small;
-    line-height: 15px;
-    display: none;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 2% 4%;
-    border-radius: 5px;
-    bottom: 0px;
-    height:fit-content;
-    /* left: 10px; */
+.work_container .card:hover .face2{
+    transform: translateY(0);
+    border-radius: 0px 0px 4px 5px;
+    border: none;
+
+}
+.work_container .card .face2 .content{
+  padding: 10px;
+  height: 100%;
 }
 
-.projet:hover > p {
-    display: block;
+.work_container .card .face2 .content p{
+    margin: 0;
+    padding: 0;
+    color: #000;
 }
 
+.work_container .card .face2 .content .link{
+    margin: 10px 0 0 60%;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: var(--main-color);
+    padding: 10px;
+    border: 1px solid var(--main-color);
+}
+
+.work_container .card .face2 .content .link:hover{
+    background: var(--main-color);
+    color: #fff;
+}
+/************************************************* */
 
 
-.pfe{
+
+
+
+
+
+
+
+/* .pfe{
     background-color: #aca0badd;
     
 }
@@ -143,46 +232,54 @@
 }
 .stage{
     background-color: #4c2776dd;
-} 
-
-.pfe_animation{
-    animation: fadeIn 0.5s ease forwards;
-    
-    animation-delay: 0.2s;
-}
-.outsourcing_animation{
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.4s;
-
-}
-.stage_animation{
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.6s;
-} 
+}  */
 
 
 
 
+/* @media (max-width: 300px) {
+.work_container .card .face1 .content img{
+    max-width: 100px;
+    height: 100px;
+    border-radius: 5px 5px 5px 5px;
+
+} */
+
+
+/* } */
 @media (max-width: 768px) {
-    .projet{
-        width: 80%;
-        height: 25%;
+  .work_container .card{
+        /* margin-top: -30%; */
+        width: 70%;
+        height: 36%;
     }
-    .projet:hover{
-        height:35% ;
-        margin-top: 6%;
     
-    }
   .work{
-    height: 150vh;
+    /* height: 180vh; */
   }
+  .work_container .card .face1 .content img{
+    max-width: 200px;
+    height: 150px;
+    border-radius: 5px 5px 5px 5px;
+
+}
   .work_container{
+    /* margin: 8% 0 0 0; */
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
+    justify-content: space-around;
+    /* height: 100%; */
+    width: 100%;
   }
 }
+@media (max-width: 300px) {
+.work_container .card .face1 .content img{
+    max-width: 100px;
+    height: 100px;
+    border-radius: 5px 5px 5px 5px;
 
+}
+
+}
 </style>
 
 <script>

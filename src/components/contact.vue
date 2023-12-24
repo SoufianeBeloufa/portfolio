@@ -97,8 +97,10 @@
     .titre{
       padding-right: 2%;
       font-size: var(--medium-font);
-      font-weight:600;
-      color: #593363;
+      font-weight:500;
+      /* color: #593363; */
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      color: #ffffff;
       width: fit-content;
       height: fit-content;
 
@@ -240,26 +242,14 @@ label{
     label,
     .mail_input:valid +
     label{
-      font-size:16px;
+      font-size:0.6rem;
       padding-inline: 5px;
       translate: 20% -60%;
       scale: 0.8;
       background-color:var(--main-color);
     }
 
-    /* button{
-      display: inline-block;
-      font-size: 17px;
-      font-weight: 500;
-      background-color: transparent;
-      width: 20%;
-      padding: 8px;
-      outline: 2px solid #fcd110;
-      border:none;
-      border-radius: 10px 10px 10px 10px; 
-
-
-    } */
+    
     /*----------------------------------------*/
 
 .send_button {
@@ -289,8 +279,11 @@ label{
 }
 
 @media (max-width: 768px) {
+  
   .send_button {
     padding: 0 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
    .contact_page{
     flex-direction: column;
@@ -300,41 +293,73 @@ label{
     width: 100%;
   }
   .contact_forme{
-    height: 80%;
+    height: 60%;
   }
   .contact_outil{
-    box-shadow: none;
-
-    flex-direction: row;
-    height: 6%;
-
+    height: 30%;
+   margin-bottom: 2%;
   }
-  .mail_value,.tel_value,.adr_value{
- display: none;
-  }
+
   .contact-box{
-    width:15%;
-    height: 100%;
+    height: 20%;
+    font-size:0.6rem;
   }
   .mail_icon,.adr_icon,.tel_icon{
-        border-radius: 10px 10px 10px 10px;
-        width: 100%;
+        width: 15%;
         height: 100%;
-        margin-right: 0;
     }
     label{
-      font-size:13px;
+      font-size:0.6rem;
       translate: 30% 65%;
       transition: translate 500ms, scale 500ms ;
 
     }
+    .titre{
+      font-size:21px;
+    }
+    .name_input,.mail_input,.message_input{
+      font-size:0.6rem;
+      padding-right: 3%;
+      padding-bottom: 3%;
+
+    }
+    
 }
 
 
     /*-------------------------------------------------------*/
     </style>
     <script>
-    export default {
-      name: 'about_me'
+    import { defineComponent } from "vue";
+    import axios from "axios";
+    export default defineComponent( {
+      name: 'about_me',
+      data() {
+    return {
+      name:"",
+      email: "",
+      message: "",
+      user:null
+    };
+  },
+  methods:{
+    async handleSubmit() {
+      //validate password
+    this.user={
+        name:this.name,
+        email:this.email,
+        message:this.message
+      }
+
+      this.message_vide =
+        this.message.length > 1
+          ? ""
+          : "message shouldn't be vide !";
+      await axios.post('http://localhost:5000/send_email', this.user)
+      .then((response)=>{
+        alert(response);
+      });
     }
+  },
+    })
     </script>

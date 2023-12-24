@@ -39,7 +39,7 @@
 .about{
   width: 100%;
   position: relative;
-  background-color: #849acf;
+  background-color: var(--main-color);
   display:flex;
   justify-content:space-around;
   flex-direction: column;
@@ -71,7 +71,7 @@
 }
 .container{
     display: flex;
-    background-color: #849acf;
+    background-color: var(--main-color);
     color: white;
     flex-wrap: nowrap;
     height: 100vh;
@@ -101,20 +101,23 @@
 }
 
 
-.about_photo{
+.about_photo {
   flex: 0 0 calc(26% - 20px);
   margin: 10px;
   filter: brightness(45%);
-  box-shadow: 28px 28px 10px 0px rgba(0,0,0,0.75);
-  border-radius: 0px 170px 170px 0px;
-  width: 26%; /* Adjust the width according to your needs */
-   padding-top: 26%; /*Maintain a square aspect ratio (height equals width) */
+  border-radius: 0px;
+  width: 13rem;
+  padding-top: 13rem;
   
-  background-image: url('../assets/man0.jpg'); /* Replace '/path/to/your/image.jpg' with the actual path to your image file */
+  background-image: url('../assets/man3.png');
   background-size: cover;
   background-position: center;
-  /* z-index: 1; */
+
+  /* Apply box shadow to the bottom */
+  box-shadow: 27px 27px 8px -16px rgba(232, 104, 119, 0.75);
+  /* Other properties */
 }
+
 @media (max-width: 768px) {
   .about_photo,.text{
     flex:none;
@@ -124,12 +127,13 @@
     width: 80%;
   }
   .about_photo{
-  box-shadow: 28px 28px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 27px 8px -16px rgba(232, 104, 119, 0.75);
+
   border-radius: 38px 38px 38px 38px;
-  width: 60%; /* Adjust the width according to your needs */
-  padding-top: 60%; /*Maintain a square aspect ratio (height equals width) */
+  width: 13rem; /* Adjust the width according to your needs */
+  padding-top: 13rem; /*Maintain a square aspect ratio (height equals width) */
   
-  background-image: url('../assets/man0.jpg'); /* Replace '/path/to/your/image.jpg' with the actual path to your image file */
+  background-image: url('../assets/man3.png'); /* Replace '/path/to/your/image.jpg' with the actual path to your image file */
   background-size: cover;
   background-position: center;
   /* z-index: 1; */

@@ -3,7 +3,7 @@
 <div id="canvas"><canvas id="test"></canvas></div>
   <section id="landing_page">
     <div class="nav">
-      <h2 class="logo">SB</h2>
+      <span  class="logo">soufiane</span>
       
           <ul class="menu">
             <li><a href="#landing_page" :class="{ 'active': activeLink === 'landing_page' }"><p>Home</p> 
@@ -32,6 +32,13 @@
 
 </div>
             </a></li>
+
+            <li><a href="#contact" :class="{ 'active': activeLink === 'contact' }"><p>Contact</p>
+<div class="icon">
+  <svg class="titre_icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+
+</div>
+            </a></li>
           </ul>
 
     </div>
@@ -41,12 +48,14 @@
         <div class="content_wrapper">
           <div class="description">
             <h2>Hi, It's Me</h2>
-            <h1>
-              I'm
-              <span id="job">Web Developer  </span>
-              <span id="name">Soufiane  </span>
-              <span class="cursor"></span></h1>
-            <p>Let's Transform Your Imaginations into Digital Realities with Creative Vision.
+            <h1 id="job">
+             
+              <a href="" class="typewrite" data-period="2000" data-type='[ " I am Soufiane.", " I am Web Developer.", "I Love to Develop." ]'>
+               <span class="wrap"></span>
+               </a>
+          
+            </h1>
+            <p class="info_text">Let's Transform Your Imaginations into Digital Realities with Creative Vision.
             </p>
           </div>
           <div class="social_media">
@@ -98,10 +107,11 @@
   </section>
 </template>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Work+Sans&display=swap');
 :root{
   --main-color:#241B18;
-  /* --main-color:black; */
+  /* --main-color:#333; */
   --small-font:20px;
   --medium-font:25px;
   --big-font:30px;
@@ -128,7 +138,7 @@ canvas {
 }
 #landing_page{
   background-color: var(--main-color);
-  font-size: 15px;
+  font-size: 1rem;
   width: 100%;
   height: 100vh;
   display: block;
@@ -140,7 +150,7 @@ canvas {
 .nav{
   position:fixed;
   width: 100%;
-  height: 10%;
+  height: 9%;
   padding-left: -20% ;
   background-color: var(--main-color);
   box-shadow: 2px 9px 17px 2px rgba(0,0,0,0.75);
@@ -187,8 +197,8 @@ z-index: 200;
   background-size:contain;
   background-position:center;
   z-index: 1;
-  width: 400px;
-  height: 400px;
+  width: 17rem;
+  height: 17rem;
   background-color:#241b18a7;
 }
 
@@ -221,10 +231,8 @@ z-index: 200;
   animation: blink 0.7s infinite;
 }
 #job{
-  display: none;
   align-items: center;
-  
-  overflow: hidden;
+  font-size: 1.3rem;
   width: fit-content;
   white-space: nowrap; 
 }
@@ -257,13 +265,12 @@ z-index: 200;
 }
 
 .description {
-  
   width: inherit;
   display: block;
   line-height:40px;
   /* height: 60%; */
   width: 100%;
-  padding:50% 2% 10% 2%;
+  padding:50% 0% 10% 0%;
   background-color:var(--main-color);
 
 }
@@ -273,18 +280,17 @@ z-index: 200;
   color: bisque;
   z-index:12;
 }
-h1{
+/* h1{
   width: fit-content;
   font-size: var(--big-font);
-  /* display: flex; */
-}
+} */
 span{
   color: var(--second-color);
 }
-p{
-  line-height: 30px;
+.info_text{
+  line-height: 17px;
+  font-size: 0.8rem;
 
-  font-size: var(--small-font);
 }
 .social_media {
   color: var(--second-color);
@@ -294,17 +300,21 @@ p{
   width: 100%;
   background-color: var(--main-color);
 }
+ .svg:hover{
+  /* box-shadow: #fcd110 0 1px 30px; */
+  box-shadow: 0px -32px 50px 0px #fcd110;
+  transition-duration: .7s;
+}
 svg{
-  fill:rgb(209, 202, 250);
+  fill:bisque;
 }
 .svg{
   
   margin: 0 ;
-  font-size: 30px;
+  font-size: 28px;
   
   display: grid;
   place-content: center;
-  border: var(--second-color) solid 3px;
   border-radius: 50%;
   padding: 10px;
 }
@@ -322,6 +332,9 @@ svg{
 }
 .logo{
   margin-left: -10% ;
+  font-family: 'La Belle Aurore', cursive;
+  font-size:x-large;
+  
   
 }
 a{
@@ -345,6 +358,7 @@ a.active{
 }
 
 /* -------------------------------------------- */
+
 @media (max-width: 768px) {
   :root{
  --small-font:15px;
@@ -378,12 +392,12 @@ a>p{
 
   font-size: var(--small-font);
 }
-h1{
+/* h1{
   font-size:var(--medium-font);
-}
+} */
 .photo{
-  height: 260px;
-  width: 260px;
+  height: 14rem;
+  width: 14rem;
 }
   .right_content{
     order: 1;
@@ -417,6 +431,12 @@ h1{
     justify-content:start;
 }
 }
+@media (min-width: 769px) and (max-width: 840px) {
+  .menu li a p {
+    font-size: 0.8rem;
+  }
+}
+
 
 
 
@@ -444,47 +464,62 @@ export default{
 }
 ,
 mounted() {
-  // window.onload = () => {
-    const nameElement = document.getElementById('name');
-    const jobElement = document.getElementById('job');
-    const cursorElement = document.querySelector('.description .cursor');
+  var TxtType = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
 
-    const typingDuration = 3000; // 3 seconds in milliseconds
-    const delayBetweenAnimations = 3000; // 1 second in milliseconds
+  TxtType.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
 
-    function animateElements() {
-      // Display name element and hide job element
-      nameElement.style.display = 'inline-flex';
-      jobElement.style.display = 'none';
+  if (this.isDeleting) {
+  this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
 
-      // Set typing animation for name element
-      nameElement.style.animation = 'typing 3s steps(10, end)';
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
-      // After typing animation for name element completes
-      nameElement.addEventListener('animationend', () => {
-        // Hide name element and display job element
-        nameElement.style.display = 'none';
-        jobElement.style.display = 'inline-flex';
+  var that = this;
+  var delta = 200 - Math.random() * 100;
 
-        // Set typing animation for job element
-        jobElement.style.animation = 'typing 3s steps(10, end)';
+  if (this.isDeleting) { delta /= 2; }
 
-        // After typing animation for job element completes, call the function again after a delay
-        jobElement.addEventListener('animationend', () => {
-          setTimeout(animateElements, delayBetweenAnimations);
-        });
-      });
-    }
+  if (!this.isDeleting && this.txt === fullTxt) {
+  delta = this.period;
+  this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+  this.isDeleting = false;
+  this.loopNum++;
+  delta = 500;
+  }
 
-    // Call the function to start the animation loop
-    animateElements();
+  setTimeout(function() {
+  that.tick();
+  }, delta);
+};
 
-    // Set a timeout to remove the blinking cursor after a certain duration (optional)
-    setTimeout(() => {
-      cursorElement.style.display = 'none';
-    }, typingDuration + 700); // 700ms is the duration of the blinking cursor animation
-  
-
+// window.onload = function() {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
+// };
     var canvas = document.getElementById('test');
 
   var w =window.innerWidth,
