@@ -26,7 +26,7 @@
         <div class="card outsourcing">
             <div class="face face1">
                 <div class="content">
-                    <img src="../assets/landing_page0.jpg">
+                    <img src="../assets/landing_page.png">
                 </div>
             </div>
             <div class="face face2">
