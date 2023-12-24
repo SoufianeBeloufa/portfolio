@@ -294,7 +294,6 @@ export default{
         // Function to check if an element is at least half in the viewport
         function isHalfInViewport(element) {
           const rect = element.getBoundingClientRect();
-          console.log(rect.bottom,"//",rect.height,">>>",window.innerHeight)
           return (
              (rect.bottom >= 0 && (rect.bottom-rect.height/1.5) <= window.innerHeight)
           );
@@ -303,7 +302,6 @@ export default{
         // Function to handle scroll event
         function handle_scroll() {
           if (isHalfInViewport(pfeElement)) {
-            console.log("is halfe visible >>>");
             pfeElement.classList.add('pfe_animation');
       } else {
         pfeElement.classList.remove('pfe_animation');
