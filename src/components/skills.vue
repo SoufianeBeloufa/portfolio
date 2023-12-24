@@ -362,7 +362,6 @@
         // Function to check if an element is at least half in the viewport
         function isHalfInViewport(element) {
           const rect = element.getBoundingClientRect();
-          console.log(rect.bottom,"//",rect.height,">>>",window.innerHeight)
           return (
              (rect.bottom >= 0 && (rect.bottom-rect.height/1.2) <= window.innerHeight)
           );
@@ -371,7 +370,6 @@
         // Function to handle scroll event
         function handle_scroll() {
           if (isHalfInViewport(frontElement)) {
-            console.log("is halfe visible >>>");
         frontElement.classList.add('slide-left');
       } else {
         frontElement.classList.remove('slide-left');
